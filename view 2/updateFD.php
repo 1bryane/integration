@@ -10,28 +10,30 @@ $FD = null;
 // create an instance of the controller
 $FDC = new FDC();
 if (
+  
     isset($_POST["idFD"]) &&
-    isset($_POST["proposition"]) &&
     isset($_POST["reclamation"]) &&
+    isset($_POST["proposition"]) &&
     isset($_POST["avis"]) 
    
 ) {
     if (
+        
         !empty($_POST["idFD"]) &&
-        !empty($_POST['proposition']) &&
         !empty($_POST["reclamation"]) &&
+        !empty($_POST['proposition']) &&
         !empty($_POST["avis"]) 
         
     ) {
         $FD = new FD(
             $_POST['idFD'],
-            $_POST['proposition'],
             $_POST['reclamation'],
+            $_POST['proposition'],
             $_POST['avis']
             
         );
         $FDC->updateFD($FD, $_POST["idFD"]);
-        header('Location:ListFDs.php');
+        header('Location:feedback.php');
     } else
         $error = "Missing information";
 }
@@ -44,8 +46,8 @@ if (
     <title>User Display</title>
 </head>
 
-<body>
-    <button><a href="ListFDs.php">Back to list</a></button>
+<body  style="background-color: #2c3845;">
+    <button style="background-color: darkcyan;"><a href="feedback.php">Back to list</a></button>
     <hr>
 
     <div id="error">
@@ -62,32 +64,37 @@ if (
             <table border="1" align="center">
                 <tr>
                     <td>
-                        <label for="idFD">Id FD:
+                        <label for="idFD" style="color:red;">Id FD:
                         </label>
                     </td>
-                    <td><input type="text" name="idFD" id="idFD" value="<?php echo $FD['idFD']; ?>" maxlength="20"></td>
+                    <td><input type="text" name="idFD" id="idFD" value="<?php echo $FD['idFD']; ?>" maxlength="21"></td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label for="reclamation" style="color:red;">reclamation:
+                        </label>
+                    </td>
+                    <td><input type="text" name="reclamation" id="reclamation" value="<?php echo $FD['reclamation']; ?>" maxlength="22"></td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="proposition">reclamation:
+                        <label for="proposition" style="color:red;">proposition:
                         </label>
                     </td>
                     <td><input type="text" name="proposition" id="proposition" value="<?php echo $FD['proposition']; ?>" maxlength="20"></td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="reclamation">proposition:
-                        </label>
-                    </td>
-                    <td><input type="text" name="reclamation" id="reclamation" value="<?php echo $FD['reclamation']; ?>" maxlength="20"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="avis">avis:
+                        <label for="avis" style="color:red;">avis:
                         </label>
                     </td>
                     <td>
-                        <input type="text" name="avis" value="<?php echo $FD['avis']; ?>" id="avis">
+                        <select name="avis" value="<?php echo $FD['avis']; ?>"id="avis">
+        <option value="exellent!">exellent</option>
+        <option value="moyen">moyen</option>
+        <option value="bas">bas</option>
+    </select>
                     </td>
                 </tr>
                
@@ -95,13 +102,13 @@ if (
                     <td></td>
                     <td>
                         <input type="submit" value="Update">
-                    </td>
-                    <td>
                         <input type="reset" value="Reset">
                     </td>
                 </tr>
             </table>
         </form>
+        <center><img src="../upload/logo final transparant.png" width="300px" height="300px"></center>
+
     <?php
     }
     ?>

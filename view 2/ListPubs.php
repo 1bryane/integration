@@ -18,21 +18,24 @@ $list = $PubC->listPubs();
     <table border="1" align="center" width="70%">
         <tr>
             <th>Id Pub</th>
+            <th>Image</th>
+            <th>nom</th>
             <th>statut</th>
-            <th>nom pub(tite)</th>
-            <th>description</th>
+            <th>description_p</th>
+            <th>domaine_p</th>
             <th>Update</th>
-            <th>delete</th>
-            
+            <th>Delete</th>
         </tr>
         <?php
         foreach ($list as $Pub) {
         ?>
             <tr>
                 <td><?= $Pub['idPub']; ?></td>
-                <td><?= $Pub['statut']; ?></td>
+                <td><img src="../storage/images/<?= $Pub['image']; ?>" width="100px" height="100px"></td>
                 <td><?= $Pub['Nom_p']; ?></td>
-                <td><?= $Pub['description']; ?></td>
+                <td><?= $Pub['statut']; ?></td>            
+                <td><?= $Pub['description_p']; ?></td>             
+                <td><?= $Pub['domaine_p']; ?></td>
                 <td align="center">
                     <form method="POST" action="updatePub.php">
                         <input type="submit" name="update" value="Update">

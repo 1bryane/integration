@@ -8,9 +8,10 @@ $list = $FDC->listFDs();
 <head></head>
 
 <body>
+   
 
     <center>
-        <h1>List des feedbacks</h1>
+        <h1>List of FDs</h1>
         <h2>
             <a href="addFD.php">Add FD</a>
         </h2>
@@ -21,13 +22,11 @@ $list = $FDC->listFDs();
             <th>reclamation</th>
             <th>proposition</th>
             <th>avis</th>
-          
             <th>Update</th>
             <th>Delete</th>
         </tr>
-        <?php
-        foreach ($list as $FD) {
-        ?>
+        
+        <?php foreach ($list as $FD) {?>
             <tr>
                 <td><?= $FD['idFD']; ?></td>
                 <td><?= $FD['reclamation']; ?></td>
@@ -44,9 +43,9 @@ $list = $FDC->listFDs();
                     <a href="deleteFD.php?idFD=<?php echo $FD['idFD']; ?>">Delete</a>
                 </td>
             </tr>
-        <?php
-        }
-        ?>
+       
+            <?php }?>
+
     </table>
 </body>
 

@@ -41,7 +41,7 @@ $list = $eventC->listevents();
                     </form>
                 </td>
                 <td>
-                    <a href="index.php?idevent=<?php echo $event['idevent']; ?>">Delete</a>
+                    <a href="deleteevent.php?idevent=<?php echo $event['idevent']; ?>">Delete</a>
                 </td>
             </tr>
         <?php

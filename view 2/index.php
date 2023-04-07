@@ -10,6 +10,7 @@
     /   Twitter: https://twitter.com/fh5co
     -->
 
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="fenetreEv.css" rel="stylesheet" />
@@ -151,7 +152,7 @@
 
             <div class="col-md-3 pr-0 first">
                 <div class="card">
-                <img class="card-img" src="../storage/images/<?= $Domaine['imageD']; ?>" >
+                <img  src="../storage/images/<?= $Domaine['imageD']; ?>" >
                 <div class="card-img-overlay">
                         <h5><?= $Domaine['idDomaine']; ?>⭐<?= $Domaine['Nom_Domaine']; ?></h5>
                     </div>
@@ -655,5 +656,26 @@ if (
   text-decoration: none;
   cursor: pointer;
 }
+
+</style>
+<style>
+
+.ma-classe {
+  position: relative;
+}
+
+.ma-classe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('chemin/vers/image.jpg');
+  background-size: cover;
+  opacity: 0.5; /* opacité de la superposition */
+  background-color: rgba(0, 0, 0, 0.5); /* superposition noire semi-transparente avec une opacité de 0,5 */
+}
+
 
 </style>
